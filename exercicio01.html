@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exercício 01</title>
+	<link rel="stylesheet" href="style01.css">
+</head>
+	<body>
+
+		<script>
+			// Cria um ciclo que faça console.log de cada um dos países
+			var países = ['Albânia','Bolívia','Canadá','Dinamarca','Etiópia','Finlândia','Alemanha','Hungria','Irlanda','Japão','Quênia'];
+
+			for (var i = 0; i < países.length; i++) {
+				console.log(países[i]);
+			}
+			// Cria uma função que devolve o número de itens do array países
+			function countItems(array) {
+				return array.length;
+			}
+
+			//var países = ['Albânia', 'Bolívia', 'Canadá', 'Dinamarca', 'Etiópia','Finlândia','Alemanha','Hungria','Irlanda','Japão','Quênia'];
+
+			console.log(countItems(países));
+			// Adiciona à primeira posição do array o país Portugal
+			//var países = ['Albânia', 'Bolívia', 'Canadá', 'Dinamarca', 'Etiópia','Finlândia','Alemanha','Hungria','Irlanda','Japão','Quênia'];
+
+			países.unshift('Portugal');
+
+			console.log(países);
+			// Adiciona à última posição do array o país Espanha
+			//var países = ['Albânia', 'Bolívia', 'Canadá', 'Dinamarca', 'Etiópia','Finlândia','Alemanha','Hungria','Irlanda','Japão','Quênia'];
+
+			países.push('Espanha');
+
+			console.log(países);
+			// Faz console.log dos 3 últimos itens do array, usando apenas uma função
+			function logLastThree(array) {
+				console.log(array.slice(-3));
+			}
+
+			var países = ['Portugal','Albânia', 'Bolívia', 'Canadá', 'Dinamarca', 'Etiópia','Finlândia','Alemanha','Hungria','Irlanda','Japão','Quênia', 'Espanha'];
+
+			logLastThree(países);
+			//Faz console.log de todos os países numa só string separado por “ - “ (espaço hífen espaço)
+
+			var countriesString = países.join(' - ');
+
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+

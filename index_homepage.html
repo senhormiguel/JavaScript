@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Homepage</title>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="icon" type="image/png" href="img/Chef_H.png">
+			<link rel="stylesheet" href="home.css">
+			
+		</head>
+		
+		<body>
+
+			<!-- Logo - Henrique Sá Pessoa -->
+			<div class="logo">
+				<a href="" target="_self"><img src="img/logo.png" alt="Página Inicial" title="Henrique Sá Pessoa"></a>
+			</div>
+				<br>
+
+			<!-- Navegador -->
+				<!-- Três tópicos -->
+
+					<ul class="topnav">
+  						<li><a href="" title="homepage"
+						target="_self"><b>Homepage</b></a></li>
+
+  						<li><a href="" target="_self">Produtos</a></li>
+
+						<li><a href="" target="_self"><button class ="Cart">Carrinho de compras</button></a></li>
+					</ul>
+
+				<hr>
+		
+			<!--Título-->
+			<div id="título">
+				<h1>Loja online de utensílios de cozinha</h1>
+			</div>
+			<br>
+
+			<div class="slogan">
+				<p><i>Para as suas melhores receitas!</i></p>
+			</div>
+
+			<div class="calculateTotal">
+			</div>
+			<!--Gelha de produtos, com preço de acréscimo. Num carrinho poderia aparecer o nome do produto sem ou com o preço-->
+			<div class="grelha">
+
+				<div class="row"> 
+				  <div class="column">
+				    <img src="img/Prato.png">
+				    <div class="center"> 
+				    	<p>Prato</p>
+				    	<p><b>€3</b></p>
+				    	<button href="#" onclick="addProductToCart('Product Name')">Add to cart</button>
+				   		<!--<button onclick="myFunction()">Add to cart</button>-->
+				    </div>
+				    <img src="img/Panela de pressão.png">
+				    <div class="center">
+				    	<p>Panela de pressão</p>
+				    	<p><b>€40</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				    </div>
+				    <img src="img/Panela normal.png">
+				    <div class="center">
+				    	<p>Panela normal</p>
+				    	<p><b>€7</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				    </div>
+
+				  </div>
+				  <div class="column">
+				    <img src="img/Frigideira.png">
+				    	<div class="center">
+				    	<p>Frigideira</p>
+				    	<p><b>€5</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				    </div>
+				    <img src="img/Chávena de café.png">
+				    	<div class="center">
+				    	<p>Chávena de café</p>
+				    	<p><b>€6</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				    </div>
+				    <img src="img/Bandejas.png">
+				    	<div class="center">
+				    	<p>Bandejas</p>
+				    	<p><b>€15</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				    </div>
+
+				  </div>
+		
+				  <div class="column">
+				    <img src="img/Saleiro.png">
+				    	<div class="center">
+				    	<p>Saleiro</p>
+				    	<p><b>€5</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				    </div>
+				    <img src="img/Açúcareiro.png">
+				    	<div class="center">
+				    	<p>Açúcareiro</p>
+				    	<p><b>€3</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				    </div>
+				    <img src="img/Molde.png">
+				    	<div class="center">
+				    	<p>Molde</p>
+				    	<p><b>€6</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				    </div>
+
+				</div>
+
+				<div class="column">
+				    <img src="img/Joías_facas.png">
+				    	<div class="center">
+				    	<!--div class="listItem"-->
+				    	<p>Joías_facas</p>
+				    	<p><b>€20</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				   		<!--</div>-->
+				    </div>
+				    <img src="img/Joías_garfo.png">
+				    	<div class="center">
+				    	<p>Joías_garfo</p>
+				    	<p><b>€20</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				    </div>
+				    <img src="img/Joías_talheres.png">
+				    	<div class="center">
+				    	<p>Joías_talheres</p>
+				    	<p><b>€20</b></p>
+				   		<button onclick="myFunction()">Add to cart</button>
+				    </div>
+
+				</div>
+			</div>
+			<br>
+			<hr>
+			<!-- String's -->
+			<div class="String"><button>Arroz e massas</button>
+				<div class="String1"><button>Bolos e Pastelaria</button></div>
+				<div class="String2"><button>Carne</button></div>
+				<div class="String3"></div><button>Peixe e marisco</button></div>
+
+			</div>
+			<!--footer-->
+			<div class="footer">
+					
+					<p class="direitos">© HSP Receitas 2024. Todos os direitos reservados.</p>
+
+
+			</div>
+
+			<script>
+				// Endpoint com início de Fetch
+				fetch('https://fakestoreapi.com/products')
+					.then(response => response.json())
+					.then(data => {
+						const grelha = document.getElementById('grelha'); //productsList
+						data.forEach(product => {
+							const listItem = document.createElement('p'); // 'li'
+							listItem.textContent = `${product.title} - ${product.price}`;
+							// listItem.textContent = `${product.title}´;
+							grelha.appendChild(listItem);//productList
+						});
+					})
+					.catch(error => console.error(error));
+					console.log(grelha); // data
+					console.log(listItem); // response or (json)
+
+
+					// GRELHA DE IMAGENS COM NOMES E IMAGENS EM JAVASCRIPT
+					// Definir o objeto
+					const product = {
+						name: '',
+						image: ''
+					};
+
+					// Iniciar o array de produtos
+					const products = [];
+
+					// Adicionar produtos com o método push
+					products.push({ name: 'Prato', image: 'Prato.png' });
+					products.push({ name: 'Panela de Pressão', image: 'Panela de pressão.png' });
+					products.push({ name: 'Panela Normal', image: 'Panela Normal.png' });
+					products.push({ name: 'Frigideira', image: 'Frigideira.png' });
+					products.push({ name: 'Chávena de café', image: 'Chávena de café.png' });
+					products.push({ name: 'Bandejas', image: 'Bandejas.png' });
+
+					products.push({ name: 'Saleiro', image: 'Saleiro.png' });
+					products.push({ name: 'Açúcareiro', image: 'Açúcareiro.png' });
+					products.push({ name: 'Molde', image: 'Molde.png' });
+
+					products.push({ name: 'Joías_facas', image: 'Joías_facas.png' });
+					products.push({ name: 'Joías_garfo', image: 'Joías_garfo.png' });
+					products.push({ name: 'Joías_talheres', image: 'Joías_talheres.png' });
+
+					//products.push({ name: 'Product 1', image: 'product1.png' });
+					//products.push({ name: 'Product 2', image: 'product2.png' });
+					//...restantes
+
+					// Grelha (HTML element)
+					const gridContainer = document.getElementById('product-grid');
+
+				// Loop e grid rows
+					products.forEach((product) => {
+						const gridRow = document.createElement('tr');
+						gridRow.innerHTML = `
+							<td>${product.name}</td>
+							<td><img src="${product.image}" alt="${product.name}"></td>
+						`;
+						gridContainer.appendChild(gridRow);
+					});
+
+
+				// Método PUT: create com segundo url
+				fetch('https://fakestoreapi.com/carts/7', {
+					method: 'PUT',
+					body: JSON.stringify({
+					userId: 3,
+					date: '2024-12-10',
+					products: [
+						{ productId: 1, quantity: 3 }
+						{ productId: 1, name: prato }
+						]
+					}),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				.then(response => response.json())
+				.then(json => console.log(json)); // res: Response
+				//
+					{
+						"userId": 123,
+						"date": "2024-12-10",
+						"products": [
+						{
+							"productId": 1,
+							"quantity": 2
+						},
+						{
+							"productId": 2,
+							"quantity": 3
+						},
+						{
+							"productId": 3,
+							"quantity": 4
+						}
+						]
+					}
+			// --------ACRÉSCIMOS DE DUAS SITUAÇÕES
+						// Carrinho de compras mais simples
+						// JavaScript Function para colocar produtos no carrinho de compras
+					function addProductToCart(product, quantity, price) {
+					  // Check se o produto está dentro do carrinho
+					  const existingProduct = localStorage.getItem("product-" + product);
+					  if (existingProduct) {
+					    // Se dentro, com quantidade
+					    const existingQuantity = parseInt(existingProduct.qtd);
+					    localStorage.setItem("product-" + product, { qtd: existingQuantity + quantity });
+					  } else {
+					    // Se não está dentro do carrinho com a quantidade
+					    localStorage.setItem("product-" + product, { qtd: quantity });
+					  }
+					  // Update com total do preço
+					  const total = calculateTotal();
+					  document.getElementById("total").textContent = "Total: R$ " + total.toFixed(2);
+					}
+					console.log(addProductToCart);
+					console.log(existingProduct);
+					console.log(existingQuantity);
+
+					// Function que calcula o valor total
+					function calculateTotal() {
+					  let total = 0;
+					  for (let i = 1; i <= 3; i++) {
+					    const product = "product-" + i;
+					    const quantity = parseInt(localStorage.getItem(product + ".qtd") || 0);
+					    const price = parseFloat(localStorage.getItem(product + ".price"));// parseInt
+					    total += quantity * price;
+					  }
+					  return total;
+					  console.log(calculateTotal);
+					}
+					// add to cart button pelo nome de produtos
+					const button = document.createElement('button');
+					button.textContent = 'Add to cart';
+					button.style.backgroundColor = '#000000';
+					button.style.color = '#FFFFFF';
+					button.style.padding = '10px 10px';
+					button.style.border = 'none';
+					button.style.borderRadius = '4px';
+					button.style.cursor = 'pointer';
+
+					// Add the button to the product list
+					// const productList document.querySelect(product-list);
+					const grelha = document.getElementById('product-list');
+					grelha.appendChild(button);
+
+					// Add an event listener to the button
+					button.addEventListener('click', (event) => {
+					  // Get the product name
+					  const grelhaName = event.target.parentNode.textContent;
+					  console.log(grelha);
+					  console.log(grelhaName);
+
+					  // Add the product to the cart
+					  // TO DO: implement the logic to add the product to the cart
+					  console.log(`Adding ${productName} to the cart`);
+					}); // console.log (´Adding ${Panela de pressão} to the cart);
+						// ...${Saleiro} to the cart);
+			</script>
+		</body>
+	</html>

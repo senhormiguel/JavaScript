@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exercício 02</title>
+	<link rel="stylesheet" href="style02.css">
+</head>
+	<body>
+
+		<script>
+			// Aceite 2 argumentos: preço e desconto
+			function calcularPreçoComDesconto(preço, desconto) {
+			// Calcular o preço descontado
+			let preçoComDesconto = preço - (preço * desconto / 100);
+				return preçoComDesconto;
+			}
+			// Exemplo
+			let preço = 100;
+			let desconto = 10;
+			let preçoFinal = calcularPreçoComDesconto(preço, desconto);
+			console.log("Preço final com desconto:", preçoFinal);
+			// Se o desconto for menor que 10%, retorna o valor mais o desconto
+			function calcularPreçoComDesconto(preço, desconto) {
+			// Desconto menor que 10%
+				if (desconto < 10) {
+				// Para largo desconto
+				desconto = 10;
+				}
+				// Calcular o preço do desconto
+			let preçoComDesconto = preço - (preço * desconto / 100);
+				return preçoComDesconto;
+			}
+			// Exemplo
+			let preço = 100;
+			let desconto = 5;
+			let preçoFinal = calcularPreçoComDesconto(preço, desconto);
+			console.log("Preço final com desconto:", preçoFinal);
+			// Se o desconto for maior que 10% mas inferior a 30%, retorna o valor menos o desconto
+			function calcularPreçoComDesconto(preço, desconto) {
+			// Condição do desconto maior que 10 e menor que 30
+				if (desconto > 10 && desconto < 30) {
+				// Pequeno desconto
+				desconto = 10;
+				}
+				// Calcular o preço com desconto
+			let preçoComDesconto = preço - (preço * desconto / 100);
+				return preçoComDesconto;
+			// Exemplo
+			let preço = 100;
+			let desconto = 20;
+			let preçoFinal = calcularPreçoComDesconto(preço, desconto);
+				console.log("Preço final com desconto:", preçoFinal);
+			}
+			//Se o desconto for 0, retorna a multiplicação do valor por 2
+			function calcularPreçoComDesconto(preço, desconto) {
+			// Zero de desconto
+				if (desconto === 0) {
+				// Devolve com multiplicação por dois
+					return preço * 2;
+				}
+			// Se desconto de menos de 10%
+				else if (desconto < 10) {
+			// Largo desconto
+					desconto = 10;
+				}
+			// Desconto maior que 10 e menor que 30
+				else if (desconto > 10 && desconto < 30) {
+				// Desconto menor
+					desconto = 10;
+				}
+			// Calcular o preço com desconto
+			const preçoComDesconto = preço - (preço * desconto / 100);
+				return preçoComDesconto;
+			}
+			// Examplo
+			const preço = 100;
+			const desconto = 0; // Change this value to test the condition
+			const preçoFinal = calcularPreçoComDesconto(preço, desconto);
+				console.log("Preço final com desconto:", preçoFinal)
+
+		</script>
+	</body>
+</html>

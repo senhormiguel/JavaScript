@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Função anónima</title>
+	<link rel="stylesheet" href="style03.css">
+</head>
+	<body>
+
+		<script>
+			// Função anónima
+			(function() {
+				console.log("isto foi demasiado rápido");
+			})();
+			// Closure
+			function createFormField(campo) {
+				return function(result) {
+					console.log(campo + ": " + result);
+				};
+			}
+
+			const nameField = createFormField("Name");
+				nameField("Miguel");
+			// Função construtora
+			function Producao(name, choices) {
+				this.name = name;
+				this.choices = choices;
+				this.value = value;
+			}
+
+			Producao.prototype.showDetails = function() {
+				console.log("Name: " + this.name);
+				console.log("Choices: " + this.choices.join(", "));
+				console.log("Value: " + this.value);
+			};
+
+			// Exemplo
+			const producao1 = new Producao("Produção A", ["Choice 1", "Choice 2", "Choice 3"]);
+			producao1.showDetails();
+			// Altera o valor deste produto para 2.5
+			producao1.value = 2.5;
+			producao1.showDetails();
+
+			// Name: Produção A
+			// Choices: Choice 1, Choice 2, Choice 3
+			// Value: 2.5
+
+			// Faz console.log do valor do produto convertido num número inteiro
+			Producao.prototype.logSolidValue = function() {
+				console.log("Solid Value: " + Math.floor(this.value));
+			};
+			const producao1 = new Producao("Produção A", ["Choice 1", "Choice 2", "Choice 3"], 2.5);
+			producao1.showDetails();
+			producao1.logSolidValue();
+		</script>
+	</body>
+</html>

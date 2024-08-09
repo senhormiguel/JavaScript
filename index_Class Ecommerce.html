@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Class Ecommerce</title>
+		<link rel="stylesheet" href="class.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<!--framework-->
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<div class="class Ecommerce">Utensílios para receitas de Henrique Sá Pessoa!</div>
+
+		<div class="produto"></div>
+
+		<div id="AddToCart">
+			<div class="itemExiste"></div>
+		</div>
+
+		<div class="AddToCart">
+		</div>
+
+		<script>
+			// class com princípio constructor
+			class Ecommerce {
+				constructor() {
+					this.products = [];
+
+				}
+				console.log(O nome do produto é: ${});
+				addProduct(product) {
+					/*  nome: 'Produto 1',
+						preco: 10.99*/
+					this.products.push(product);
+					console.log(products); //product
+				}
+
+
+				setProductPrice(productId, price) {
+					const product = this.products.find((p) => p.id === productId);
+					if (product) {
+						product.price = price;
+					console.log(product);
+					// console.log(product);
+					}
+				}
+				const precoAntigo = 10.99;
+				const precoNovo = 12.99;
+				precoAntigo = precoNovo;
+				console.log(O novo preço é: ${precoAntigo});
+				console.log(O novo preço é: ${precoNovo});
+
+
+				getAllProducts() {
+					return this.products;
+					console.log(products);
+				}
+
+				getAllProductsNames() {
+					return this.products.map((product) => product.name).join("; ");
+					console.log(products);
+				}
+
+				/*getProductById(productId) {
+					for (let product of this.products) {
+						// for (this.products) {
+						if (product.id === productId) {
+							return product;
+						}
+					}
+						return null;
+				console.log(product);
+				}*/
+
+				function getProductById(productId) {
+					const products = [...]; // Replace with your product data
+					const product = products.find((product) => product.id === productId);
+					return product;
+				}
+
+				const productId = '12345';
+				const product = getProductById(productId);
+				console.log(product); // Output
+
+				/*getProductByName(productName) {
+					for (let product of this.products) {
+						// for(this.products) {
+						if (product.name === productName) {
+							return product;
+						}
+					}
+						return null;
+				console.log(product);
+				}*/
+
+				const products = {
+					'Prato': { id: 1 },
+					'Panela de Pressão': { id: 2 },
+					'Panela normal': { id: 3 },
+					'Moldes': { id: 4 },
+					// 'Açúcareiro': { id: 5 }
+
+				};
+
+				function getProductByName(name) {
+					return products[panela, saleiro];
+				/*function getProductByname(Panela de Pressão) {
+					return products[panela de pressão];
+				} */
+				}
+
+				const product = getProductByName('Product 2'); // Panela de Pressão é Product 2
+
+				console.log(product);
+				// OUTRA OPÇÃO DE NOMES
+				// Produtos conseguidos pelo nome e detalhes
+				const produtos = [
+					{ id: 1, descricao: "Culinária", categoria: "Prato", preco: 3.00 },
+					{ id: 2, descricao: "Culinária", categoria: "Panela de Pressão", preco: 40.00 },
+					{ id: 3, descricao: "Culinária", categoria: "Panela normal", preco: 7.00 },
+
+				];
+
+				function filtrarPorPreco(initialPrice, finalPrice) {
+					return produtos.filter((produto) => produto.preco >= initialPrice && produto.preco <= finalPrice);
+				}
+				// Opção 1 de produtos iguais ou superiores
+				const produtosFiltrados = getProductByPrice(40.00, 3.00); // const produtosFiltrados = filtrarPorPreco
+				console.log(produtosFiltrados);
+
+				// addProductToCart
+				// Adicionar produtos no carrinho de compras
+
+				const addToCart = (id) => {
+				const itemExiste = cartItem.find((item) => item === id);
+					if (!itemExiste) {
+						cartItem.push(id);
+						console.log(`Item ${id} adicionado ao carrinho!`);
+					} else {
+					console.log(`Item ${id} já está no carrinho!`);
+					}
+				};
+
+				// Opção 2 de produtos iguais ou superiores
+
+				function ProductsByPrice(initialPrice, finalPrice, products) {
+					return products.filter((product) => {
+						return product.price >= initialPrice && product.price <= finalPrice;
+					});
+				}
+
+				// Verifique se o preço do produto está dentro do intervalo definido
+				/*function addProductToCart(productId, price) {
+					if (price >= cart.initialPrice && price <= cart.finalPrice) {
+					cart.products.push({
+					id: productId,
+					price: price
+					});
+					cart.totalPrice = calculateTotalPrice();
+					console.log(products);
+					}
+				}
+				*/
+
+				// addProductToCart 
+				const product = {
+				  name: "Product Name", // name: "Moldes",
+				  price: 9.99,
+				  quantity: 1
+				};
+
+				// 
+				const cart = [];
+
+				// Function para add product to carrinho de compras, opção 2
+				function addProductToCart(product) {
+				  // Verificar se o produto está no carro
+				  if (cart.some((item) => item.name === product.name)) {
+				    // Utilizar a quantidade
+				    cart.forEach((item) => {
+				      if (item.name === product.name) {
+				        item.quantity += product.quantity;
+				      }
+				    });
+				  } else {
+				    // Adicionar produto
+				    cart.push(product);
+				    console.log(cart);
+				  }
+				}
+
+				// Call the function to add the product to the cart
+				/*addToCart(product);
+				addProductToCart(product) {
+					this.cart.push(product);
+					console.log(cart);
+				}*/
+
+				getCart() {
+					return this.cart;
+					console.log(cart);
+				}
+				// Opção 1 getCartTotalPrice
+				getCartTotalPrice(cart) {
+					const total = 0;
+					for (const product of cart) {
+						total += product.price * product.quantity;
+					}
+						return total;
+						console.log(total);
+				}
+			//}
+
+				// GETCARTTOTALPRICE ÕPÇÃO FINAL
+				const getCartTotalPrice
+				const totalPrice = ecommerce.getCartTotalPrice(cart); > 
+				console.log(`O total da compra é: ${totalPrice}`);
+
+				let totalPrice = ecommerce.getCartTotalPrice(cart); = com let
+				console.log(`O total da compra é: ${totalPrice}`);
+				// FINAL: console.log de addProduct 
+				console.log(ecommerce.products);
+
+				addProduct(product) {
+					if (!this.products.includes(product)) {
+						this.products.push(product);
+					}
+				}
+
+
+			//----
+			// Um produto é composto pelos campos: name, price, id;
+			const produto = {
+				name: 'Produto 1', // No carrinho é escolhido: name: 'Prato', foi produto 1 na lista
+				price: 10.99,
+				id: 1
+			};
+
+			console.log(produto);
+			// carrinho de compras: array
+			const addToCart = (id) => {
+				const existingItem = cartItem.find((item) => item === id);
+				if (!existingItem) {
+					const newItem = { id, quantity: 1 };
+				setCartItem([...cartItem, newItem]);
+				} /*else {
+					return.push(cartItem, newItem);
+					// return push(existingItem, newItem);
+					// console.log(addToCart);
+				}*/
+			};
+			// OPÇÃO DE PRODUTOS COM ID E POR NOME
+			ecommerce.products = [
+			  { id: 1, name: 'Product 1' },
+			  { id: 2, name: 'Product 2' },
+			  { id: 3, name: 'Product 3' }
+			// { id: 3, name: 'Product 3', price: 10.99 } //erro
+			];
+			/* products: [
+				// { id: 0, name: 'Product 0' }, // 1
+				// { id: 1, name: 'Product 1' }, // 2
+				// { id: 2, name: 'Product 2' } // 3
+			];*/
+			// Buscando produto por ID: outra opção
+			const productById = ecommerce.getProductById(0);
+			console.log(productById);// { id: 0, name: 'Product 0' }
+
+			const productById = ecommerce.getProductById(1);
+			console.log(1); // { id: 1, name: 'Product 1' }
+
+			const productById = ecommerce.getProductById(2);
+			console.log(productById); // { id: 2, name: 'Product 2' }
+
+			// Buscando produto por nome: também outra opção
+			const productByName = ecommerce.getProductByName('Product 2');
+			console.log(productByName);
+			// ---------------------------------------------
+
+			//constante ecommerce, OUTRAS OPÇÕES
+			/*const ecommerce = new Ecommerce();
+			ecommerce.addProduct({ name: 'Produto 1', price: 10.99 });
+			ecommerce.addProduct({ name: 'Produto 2', price: 9.99 });
+
+			ecommerce.addProduct(product1);
+			ecommerce.addProduct(product2);
+			// ecommerce com console.log
+			ecommerce.setProductPrice(1, 12.99);
+			console.log(ecommerce.products[0].price);
+
+			console.log(ecommerce.getAllProducts());
+
+			ecommerce.setProductPrice(1, 15);
+			console.log(ecommerce.getAllProducts());
+
+			console.log(ecommere.getAllProductsNames());
+
+			const ecommerce = new Ecommerce();
+
+			// Adicionando produtos ao array
+			ecommerce.products = [
+			  { id: 1, name: 'Product 1' },
+			  { id: 2, name: 'Product 2' },
+			  { id: 3, name: 'Product 3' }
+			];
+
+			// Buscando produto por ID
+			const productById = ecommerce.getProductById(2);
+			console.log(productById); // { id: 2, name: 'Product 2' }
+
+			// Buscando produto por nome
+			const productByName = ecommerce.getProductByName('Product 2');
+			console.log(productByName); // { id: 2, name: 'Product 2' }
+			// -----------------------------------------
+			// ecommerce = Ecommerce()/ name, produto e preço
+			ecommerce = Ecommerce();
+			ecommerce.addProduct({'name': 'Produto 1', 'price': 10.00});
+			ecommerce.addProduct({'name': 'Produto 2', 'price': 20.00});
+			ecommerce.addProduct({'name': 'Produto 3', 'price': 30.00});
+			ecommerce.addProduct({'name': 'Produto 4', 'price': 15.00});
+
+			/* products: [
+				{ productID: 0, 'price': '10.50' } // resulta em ID para preço
+			]
+			// -----------------------------------------
+			products = ecommerce.getProductsByPrice(15.00, 25.00)
+			print(products)  # [{ 'name': 'Produto 1', 'price': 10.00 }, { 'name': 'Produto 4', 'price': 15.00 }];
+
+
+			product = {"name": "Produto 1", "price": 10.99}
+			ecommerce.addProductToCart(product);
+
+			print(ecommerce.getCart()); // # [{"name": "Produto 1", "price": 10.99}]
+			*/
+			// constante ecommerce = new Ecommerce
+			/*const ecommerce = new Ecommerce();
+
+			ecommerce.addProductToCart({ name: 'Produto 1', price: 10 });
+			ecommerce.addProductToCart({ name: 'Produto 2', price: 20 });
+
+			console.log(ecommerce.getCart()); // [{ name: 'Produto 1', price: 10 }, { name: 'Produto 2', price: 20 }]
+			// CONST CART
+			const cart = [
+				{ id: 1, name: 'Produto 1', price: 10, quantity: 2 },
+				{ id: 2, name: 'Produto 2', price: 20, quantity: 3 },
+				{ id: 3, name: 'Produto 3', price: 30, quantity: 1 }
+			];*/
+
+
+			//Outra opção de GETCART
+			/*const cart = [...]; // lista de produtos no carrinho de compras
+
+			const filteredCart = cart.filter((product) => {
+			  // condição de filtro (por exemplo, apenas produtos com preço maior que 10)
+			  return product.price > 10;
+			});
+
+			console.log(filteredCart);
+
+			const cart = [
+				{ id: 1, name: 'Produto 1', price: 5 },
+				{ id: 2, name: 'Produto 2', price: 15 },
+				{ id: 3, name: 'Produto 3', price: 20 },
+				{ id: 4, name: 'Produto 4', price: 10 },
+				{ id: 5, name: 'Produto 5', price: 25 }
+				];
+			// GETCART SEGUNDA OPÇÃO
+			const filteredCart = cart.filter((product) => product.price > 15);
+
+			console.log(filteredCart);
+			// Output:
+			// [
+			//   { id: 3, name: 'Produto 3', price: 20 },
+			//   { id: 5, name: 'Produto 5', price: 25 }
+			// ]*/
+
+			// Mais tardar, apagar a opção debaixo
+			// GETCARTTOTALPRICE ÕPÇÃO FINAL
+			/*const getCartTotalPrice
+			const totalPrice = ecommerce.getCartTotalPrice(cart); > 
+			console.log(`O total da compra é: ${totalPrice}`);
+
+			let totalPrice = ecommerce.getCartTotalPrice(cart); = com let
+			console.log(`O total da compra é: ${totalPrice}`);
+			// FINAL: console.log de addProduct 
+			console.log(ecommerce.products);
+
+			addProduct(product) {
+				if (!this.products.includes(product)) {
+					this.products.push(product);
+				}
+			}*/
+		</script>
+
+	</body>
+</html>
